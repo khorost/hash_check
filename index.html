@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hash check</title>
+    <link href="./css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col"><label for="secret_code">Secret code = </label></div>
+        <div class="col"><input class="form-control" id="secret_code"/></div>
+    </div>
+    <div class="row">
+        <div class="col"><label for="hash_code">Hash (Secret) code = </label></div>
+        <div class="col"><input class="form-control" id="hash_code"/></div>
+    </div>
+    <div class="row">
+        <div class="col"><label for="public_code">Open code = </label></div>
+        <div class="col"><input class="form-control" id="public_code"/></div>
+    </div>
+    <div class="row" id="result_container">
+        <div class="col"><label>Hash code - Open code = </label></div>
+        <div class="col"><label id="result_code"></label></div>
+    </div>
+</div>
+
+<script type='text/javascript' src='./js/jquery-3.3.1.min.js'></script>
+<script type='text/javascript' src='./js/bootstrap/bootstrap.js'></script>
+<script type='text/javascript' src='./js/CryptoJS/core.js'></script>
+<script type='text/javascript' src='./js/CryptoJS/md5.js'></script>
+
+<script type='text/javascript' src='./js/hash_check.js'></script>
+
+</body>
+</html>
