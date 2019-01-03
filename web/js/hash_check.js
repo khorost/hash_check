@@ -2,10 +2,20 @@ function getParam(param) {
     return new URLSearchParams(window.location.search).get(param);
 }
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 function onUpdateParams() {
-    const secret_code = getParam('secret_code');
+    const secret_code = getParameterByName('secret_code');
     const hash_code = CryptoJS.MD5(secret_code).toString();
-    const public_code = getParam('public_code');
+    const public_code = getParameterByName('public_code');
 
     $('#secret_code').val(secret_code);
     $('#hash_code').val(hash_code);
