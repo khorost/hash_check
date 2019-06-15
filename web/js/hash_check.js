@@ -36,21 +36,28 @@ function onCheck() {
 
     for (let k = 0; k < max_count; ++k) {
         if (k >= hash_code.length || k >= public_code.length || hash_code[k] !== public_code[k]) {
-            result += '1';
+            result += '<span style="color: red;">1</span>';
             status = false;
         } else {
-            result += '0';
+            result += '<span style="color: green;">0</span>';
         }
     }
 
-    $('#result_code').html(result);
+    const result_code = $('#result_code');
+    result_code.html(result);
 
     if (status) {
         $('#result_container')
             .removeClass("alert-warning")
             .addClass("alert-success");
+        result_code
+            .removeClass("alert-warning")
+            .addClass("alert-success");
     } else {
         $('#result_container')
+            .removeClass("alert-success")
+            .addClass("alert-warning");
+        result_code
             .removeClass("alert-success")
             .addClass("alert-warning");
     }
